@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "python.pythonPath": "/bin/python",
     "python.envFile": "C:\\proyecto-django\\env_eco",
     "python.workspaceSymbols.enabled": true
 }

@@ -1,0 +1,64 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLOWED_HOSTS	../ecommerce/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../ecommerce/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:88
+AppConfig	../core/apps.py	/^from django.apps import AppConfig$/;"	kind:namespace	line:1
+BASE_DIR	../ecommerce/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+CoreConfig	../core/apps.py	/^class CoreConfig(AppConfig):$/;"	kind:class	line:4
+DATABASES	../ecommerce/settings.py	/^DATABASES = {$/;"	kind:variable	line:77
+DEBUG	../ecommerce/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+INSTALLED_APPS	../ecommerce/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
+Inicio	../core/urls.py	/^from .views import (Inicio$/;"	kind:namespace	line:2
+Inicio	../core/views.py	/^class Inicio(View):$/;"	kind:class	line:7
+LANGUAGE_CODE	../ecommerce/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:107
+MIDDLEWARE	../ecommerce/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:43
+ROOT_URLCONF	../ecommerce/settings.py	/^ROOT_URLCONF = 'ecommerce.urls'$/;"	kind:variable	line:53
+SECRET_KEY	../ecommerce/settings.py	/^SECRET_KEY = 'owo2ug7(w#vlagkrfj@(hci3hgjk7)frob&l35er!fj0z+u9p1'$/;"	kind:variable	line:23
+STATIC_FILES_DIRS	../ecommerce/settings.py	/^STATIC_FILES_DIRS = [os.path.join,(BASE_DIR, 'static')]$/;"	kind:variable	line:123
+STATIC_URL	../ecommerce/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:121
+TEMPLATES	../ecommerce/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
+TIME_ZONE	../ecommerce/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:109
+TestCase	../core/tests.py	/^from django.test import TestCase$/;"	kind:namespace	line:1
+USE_I18N	../ecommerce/settings.py	/^USE_I18N = True$/;"	kind:variable	line:111
+USE_L10N	../ecommerce/settings.py	/^USE_L10N = True$/;"	kind:variable	line:113
+USE_TZ	../ecommerce/settings.py	/^USE_TZ = True$/;"	kind:variable	line:115
+View	../core/views.py	/^from django.views import View$/;"	kind:namespace	line:2
+WSGI_APPLICATION	../ecommerce/settings.py	/^WSGI_APPLICATION = 'ecommerce.wsgi.application'$/;"	kind:variable	line:71
+__init__.py	../core/__init__.py	1;"	kind:file	line:1
+__init__.py	../core/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../ecommerce/__init__.py	1;"	kind:file	line:1
+admin	../core/admin.py	/^from django.contrib import admin$/;"	kind:namespace	line:1
+admin	../ecommerce/urls.py	/^from django.contrib import admin$/;"	kind:namespace	line:16
+admin.py	../core/admin.py	1;"	kind:file	line:1
+app_name	../core/urls.py	/^app_name = "core"$/;"	kind:variable	line:6
+application	../ecommerce/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../core/apps.py	1;"	kind:file	line:1
+execute_from_command_line	../manage.py	/^        from django.core.management import execute_from_command_line$/;"	kind:namespace	line:10
+get	../core/views.py	/^    def get(self, request):$/;"	kind:member	line:8
+get_wsgi_application	../ecommerce/wsgi.py	/^from django.core.wsgi import get_wsgi_application$/;"	kind:namespace	line:12
+include	../ecommerce/urls.py	/^from django.urls import path, include$/;"	kind:namespace	line:17
+main	../manage.py	/^def main():$/;"	kind:function	line:7
+manage.py	../manage.py	1;"	kind:file	line:1
+models	../core/models.py	/^from django.db import models$/;"	kind:namespace	line:1
+models.py	../core/models.py	1;"	kind:file	line:1
+name	../core/apps.py	/^    name = 'core'$/;"	kind:variable	line:5
+os	../ecommerce/settings.py	/^import os$/;"	kind:namespace	line:13
+os	../ecommerce/wsgi.py	/^import os$/;"	kind:namespace	line:10
+os	../manage.py	/^import os$/;"	kind:namespace	line:3
+path	../core/urls.py	/^from django.urls import path $/;"	kind:namespace	line:1
+path	../ecommerce/urls.py	/^from django.urls import path, include$/;"	kind:namespace	line:17
+render	../core/views.py	/^from django.shortcuts import render$/;"	kind:namespace	line:1
+settings.py	../ecommerce/settings.py	1;"	kind:file	line:1
+sys	../manage.py	/^import sys$/;"	kind:namespace	line:4
+tests.py	../core/tests.py	1;"	kind:file	line:1
+urlpatterns	../core/urls.py	/^urlpatterns = [$/;"	kind:variable	line:8
+urlpatterns	../ecommerce/urls.py	/^urlpatterns = [$/;"	kind:variable	line:20
+urls	../ecommerce/urls.py	/^from core import urls$/;"	kind:namespace	line:18
+urls.py	../core/urls.py	1;"	kind:file	line:1
+urls.py	../ecommerce/urls.py	1;"	kind:file	line:1
+views.py	../core/views.py	1;"	kind:file	line:1
+wsgi.py	../ecommerce/wsgi.py	1;"	kind:file	line:1
