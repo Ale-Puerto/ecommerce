@@ -4,6 +4,8 @@
 
 {% block extra_css %}
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock extra_css %}
     
 {% block title %}
@@ -21,49 +23,164 @@
                 
                 {% if articulo %}
                 <div class="row d-flex">
-                    <div class="col-md-4 float-left ">
-                        <img class="float-right" src="{{articulo.imagen_presentacion.url}}" height="300px" alt="300px">
-                    </div>
-                    <div class="col-md-8 mt-4 mb-4">
-                        <h2 style="font-family: 'Roboto Slab', serif; font-size:35px ;font-weight: 700px; color: #333135;;">{{articulo.nombre}}</h2>
-                        <h5 class="text-primary mb-4 mt-4 ml-4 ">{{articulo.marca}}</h5>
+                    <div class="col-md-3">
+                        <div class="row">
+                            
+                            <ul class="nav flex-column" >
+                                {% for image in articulo.articulo.imagen_referencia.all  %}    
+                                <li class="nav-item m-2 border border-gray" id="lista">
+                                  <img src="{{image.imagen.url}}" width="100px" height="100px" srcset="">
+                                </li>
+                                {% endfor %}
 
+                              </ul> 
+                           
+                        </div>
+                   </div>
+                    <div class="col-md-4 float-left ">
+                        <img class="float-right"  id="img-grande" src="{{articulo.articulo.imagen_presentacion.url}}" height="300px" alt="300px">
+                    </div>
+                    <div class="col-md-5 border-left border-gray">
+                        <h2 style="font-family: 'Roboto Slab', serif; font-size:35px ;font-weight: 700px; color: #333135;;" class="ml-4 mt-4 mb-4">{{articulo.articulo.nombre}}</h2>
+                        
+                        {% for i in "12345"  %}
+                        
+                        {% if forloop.first %}
+                        <img class="ml-4" src="{% static 'images/estrella.png' %}" width="20px" height="20px" srcset="">
+
+                        {% else %}
+                        <img class="" src="{% static 'images/estrella.png' %}" width="20px" height="20px" srcset="">
+
+                        {% endif %}
+                            
+                        {% endfor %}
+                            
+                        <hr class="border border-gray">
                         <div class="row">
                             <div class="col-6">
-                                {% if articulo.descuento %}
-                                    <h4 class="ml-4 text-center" style="font-family: 'Roboto Slab', serif; font-size:18px ;color: #f50930;font-weight: 300px;">$ {{articulo.precio}}</h4>
-                                    <h4 class="ml-4 text-center" style="font-family: 'Roboto Slab', serif; font-size:18px ;color: #f50930;font-weight: 300px;"> ${{articulo.descuento}}</h4>
-                                {% else %}
-                                    <h4 class="ml-4 text-center" style="font-family: 'Roboto Slab', serif; font-size:18px ;color: #f50930;font-weight: 300px;"> ${{articulo.precio}}</h4>
-
-                                {% endif %}
+                                <h5 class="text-primary mb-4 mt-4 ml-4 ">{{articulo.articulo.marca}}</h5>
                             </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-danger mt-2 mb-2 text-white" >
-                                    Añadir al carrito
-                                </a>
+                            <div class="col-6 mt-4">
+                                <a href="#" class="btn btn-primary">Añadir al carrito</a>
                             </div>
                         </div>
                         
-                        <div class="card mt-4 mb-4 ml-4 border border-gray" style="max-width: 450px; height: 200px;">
-                            <div class="card-body">
-                                <p class="text-card">
-                                    {{articulo.descripcion}}
-                                </p>
-                            </div>
-                        </div>
+
+                        
+                        {% if articulo.articulo.descuento %}
+                            <h4 class="ml-4 price" >$ {{articulo.articulo.precio}}</h4>
+                            <h4 class="ml-4 descuento " > $ {{articulo.articulo.descuento}}</h4>
+                        {% else %}
+                            <h4 class="ml-4 price" > ${{articulo.articulo.precio}}</h4>
+
+                        {% endif %}
+                            <p class="price m-4">Stock diponible</p>                           
                             
-                    </div>
+                            
+                            <p class="price d-flex mt-4" style="color:#2ecc71">
+                                <span class="mr-2 ">
+                                    <svg class="ml-4 d-flex" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="32" height="32"
+                            viewBox="0 0 172 172"
+                            style=" fill:#000000;">
+                            <g transform="translate(15.308,15.308) scale(0.822,0.822)">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray=""
+                            stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g id="original-icon 1"
+                            fill="#ffffff" stroke="#ffffff" stroke-width="40" stroke-linejoin="round">
+                            <path d="M145.125,32.25c8.84171,0 16.125,7.28329 16.125,16.125v75.25c0,8.84171 -7.28329,16.125 -16.125,16.125h-118.25c-8.84171,0 -16.125,-7.28329 -16.125,-16.125v-75.25c0,-8.84171 7.28329,-16.125 16.125,-16.125zM21.5,48.375v75.25c0,3.03704 2.33796,5.375 5.375,5.375h118.25c3.03704,0 5.375,-2.33796 5.375,-5.375v-53.75h-123.625v-10.75h123.625v-10.75c0,-3.03704 -2.33796,-5.375 -5.375,-5.375h-118.25c-3.03704,0 -5.375,2.33796 -5.375,5.375zM110.20849,84.07886c3.05811,-2.15803 6.75464,-3.45386 10.75,-3.45386c10.31432,0 18.79151,8.47719 18.79151,18.79151c0,10.31432 -8.47719,18.7915 -18.79151,18.79151c-3.99536,-0.00001 -7.69189,-1.29583 -10.75,-3.45386c-3.0581,2.15804 -6.75464,3.45386 -10.75,3.45386c-10.31432,-0.00001 -18.7915,-8.47719 -18.79151,-18.79151c0.00001,-10.31432 8.47719,-18.79151 18.79151,-18.79151c3.99536,0 7.6919,1.29583 10.75,3.45386zM91.41699,99.41651c0.00001,4.50458 3.53692,8.04149 8.04151,8.04151c1.50661,-0.00001 2.88976,-0.41761 4.08374,-1.1128c-0.86584,-2.15178 -1.37524,-4.48136 -1.37525,-6.92871c0.00001,-2.44735 0.50941,-4.77693 1.37525,-6.92871c-1.19399,-0.69518 -2.57713,-1.11279 -4.08374,-1.11279c-4.50458,0 -8.0415,3.53692 -8.04151,8.04151zM116.87476,92.48779c0.86583,2.15178 1.37524,4.48136 1.37524,6.92871c0,2.44735 -0.50941,4.77692 -1.37524,6.92871c1.19399,0.69519 2.57713,1.11279 4.08374,1.1128c4.50459,-0.00001 8.04151,-3.53692 8.04151,-8.04151c0,-4.50459 -3.53692,-8.04151 -8.04151,-8.04151c-1.50661,0 -2.88975,0.41761 -4.08374,1.11279z">
+                            </path></g><path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter">     
+                            </path><g id="original-icon" fill="#2ecc71" stroke="none" stroke-width="1" stroke-linejoin="miter"><path d="M26.875,32.25c-8.84171,0 -16.125,7.28329 -16.125,16.125v75.25c0,8.84171 7.28329,16.125 16.125,16.125h118.25c8.84171,0 16.125,-7.28329 16.125,-16.125v-75.25c0,-8.84171 -7.28329,-16.125 -16.125,-16.125zM26.875,43h118.25c3.03704,0 5.375,2.33796 5.375,5.375v10.75h-123.625v10.75h123.625v53.75c0,3.03704 -2.33796,5.375 -5.375,5.375h-118.25c-3.03704,0 -5.375,-2.33796 -5.375,-5.375v-75.25c0,-3.03704 2.33796,-5.375 5.375,-5.375zM99.45849,80.625c-10.31432,0 -18.7915,8.47719 -18.79151,18.79151c0.00001,10.31432 8.47719,18.7915 18.79151,18.79151c3.99536,-0.00001 7.6919,-1.29583 10.75,-3.45386c3.05811,2.15804 6.75464,3.45386 10.75,3.45386c10.31432,-0.00001 18.79151,-8.47719 18.79151,-18.79151c0,-10.31432 -8.47719,-18.79151 -18.79151,-18.79151c-3.99536,0 -7.69189,1.29583 -10.75,3.45386c-3.0581,-2.15803 -6.75464,-3.45386 -10.75,-3.45386zM99.45849,91.375c1.50661,0 2.88976,0.41761 4.08374,1.11279c-0.86584,2.15178 -1.37524,4.48136 -1.37525,6.92871c0.00001,2.44735 0.50941,4.77692 1.37525,6.92871c-1.19399,0.69519 -2.57713,1.11279 -4.08374,1.1128c-4.50458,-0.00001 -8.04149,-3.53692 -8.04151,-8.04151c0.00001,-4.50459 3.53692,-8.04151 8.04151,-8.04151zM120.95849,91.375c4.50459,0 8.04151,3.53692 8.04151,8.04151c0,4.50458 -3.53692,8.04149 -8.04151,8.04151c-1.50661,-0.00001 -2.88975,-0.41761 -4.08374,-1.1128c0.86583,-2.15178 1.37524,-4.48136 1.37524,-6.92871c0,-2.44735 -0.50941,-4.77693 -1.37524,-6.92871c1.19399,-0.69518 2.57713,-1.11279 4.08374,-1.11279z">
+                                    </path></g><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="M3.44,168.56v-165.12h165.12v165.12z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="M86,168.56c-45.59663,0 -82.56,-36.96337 -82.56,-82.56v0c0,-45.59663 36.96337,-82.56 82.56,-82.56v0c45.59663,0 82.56,36.96337 82.56,82.56v0c0,45.59663 -36.96337,82.56 -82.56,82.56z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path></g></g></svg>
+                                </span>
+                                Diferentes metodos de pagos
+                            </p>
+                            <ul class="nav " style="margin-left: 60px;">
+                                <li class="nav-item ml-2">
+                                    <img src="{% static 'images/visa.png' %}" height="30px" width="30px"/>
+                                </li>
+                                <li class="nav-item ml-2">
+                                    <img src="{% static 'images/tarjeta-mastercard.png' %}" height="30px" width="30px"/>
+                                  
+                                </li>
+                                <li class="nav-item ml-2">
+                                    <img src="{% static 'images/american-express.png' %}" height="30px" width="30px"/>
+                                  
+                                </li>
+                               
+                            </ul>
+                            <p class="price d-flex mt-4" style="color:#2ecc71">
+                                <span class="ml-4 mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32"
+                                    viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" 
+                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" 
+                                    font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2ecc71">
+                                    <path d="M24.72553,59.66303c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125v80.625c0,2.28438 1.74687,4.03125 4.03125,
+                                    4.03125h10.21197c0,0.5375 -0.13385,0.9401 -0.13385,1.4776c0,3.225 0.94115,6.3151 2.55365,8.86823h-13.1698c-2.28438,
+                                    0 -4.03125,1.74687 -4.03125,4.03125c0,2.28438 1.74687,4.03125 4.03125,4.03125h113.41302c0.40312,0 0.94063,
+                                    -0.13333 1.34375,-0.2677c8.6,-0.67187 15.45313,-7.92865 15.45313,-16.66302c0,-0.5375 0.00052,-0.9401 -0.13385,
+                                    -1.4776h10.34583c2.28438,0 4.03125,-1.74687 4.03125,-4.03125v-47.03125v-0.27032v-0.5354c0,-0.13437 0.00052,
+                                    -0.13595 -0.13385,-0.27032c0,-0.13437 -0.13385,-0.26718 -0.13385,-0.40155l-8.46667,-21.09845c-3.62813,-9.1375 -12.3625,
+                                    -14.91457 -22.17187,-15.04895h-13.4375c-2.28437,0 -4.03125,1.74688 -4.03125,4.03125v76.59375h-54.82605c-1.075,
+                                    -1.6125 -2.41665,-2.95625 -3.89478,-4.03125h50.79218c2.28438,0 4.03125,-1.74687 4.03125,-4.03125v-68.53125c0,
+                                    -2.28437 -1.74687,-4.03125 -4.03125,-4.03125zM28.75678,67.59167h79.4151v47.03125h-79.4151zM128.46197,
+                                    67.59167h5.375v22.84375c0,1.88125 1.21042,3.49165 3.09167,3.89478l23.78333,5.91302v39.91095h-9.13593c-3.09062,
+                                    -4.43437 -8.06355,-7.25677 -13.84167,-7.25677c-3.35937,0 -6.5849,1.07447 -9.2724,2.82135zM141.89948,68.12708c4.8375,
+                                    1.20937 8.7349,4.70313 10.61615,9.40625l5.50885,13.84167l-16.125,-4.03125zM28.89063,136.12292h12.89947c-1.47812,
+                                    1.075 -2.8224,2.41875 -3.8974,4.03125h-9.00208zM51.60053,140.68958c3.225,0 6.17968,1.74792 7.79218,4.43542c0.13437,
+                                    0.67188 0.40522,1.20833 0.80835,1.61145c0.26875,0.94063 0.5354,2.0172 0.5354,2.95782c0,4.43437 -3.225,8.06198 -7.39062,
+                                    8.86823h-3.35937c-4.16563,-0.80625 -7.39062,-4.43385 -7.39062,-8.86823c0,-4.97188 4.03282,-9.0047 9.0047,-9.0047zM137.46667,
+                                    140.68958c4.97188,0 9.00208,4.03282 9.00208,9.0047c0.26875,4.70313 -3.3599,8.46458 -7.92865,9.00208c-0.26875,-0.13438 -0.53645,
+                                    -0.13385 -0.93958,-0.13385h-1.74792c-4.16563,-0.80625 -7.39063,-4.43385 -7.39063,-8.86823c0,-4.97188 4.03282,-9.0047 9.0047,
+                                    -9.0047zM68.26355,148.21667h52.67395c0,0.5375 -0.13385,0.9401 -0.13385,1.4776c0,3.225 0.94115,6.3151 2.55365,
+                                    8.86823h-57.51355c1.6125,-2.55312 2.55365,-5.64323 2.55365,-8.86823c0,-0.5375 0.00052,-0.9401 -0.13385,
+                                    -1.4776zM6.71875,158.66223c-1.04141,0 -2.08229,0.3711 -2.82135,1.11017c-0.80625,0.67188 -1.2099,1.74635 -1.2099,2.82135c0,
+                                    1.075 0.40365,2.14948 1.2099,2.82135c0.80625,0.80625 1.74635,1.2099 2.82135,1.2099c1.075,0 2.14948,-0.40365 2.82135,
+                                    -1.2099c0.80625,-0.80625 1.2099,-1.74635 1.2099,-2.82135c0,-1.075 -0.40365,-2.14948 -1.2099,-2.82135c-0.73906,-0.73906 -1.77994,
+                                    -1.11017 -2.82135,-1.11017z"></path></g></g></svg>
+                                </span>
+                                Envios a todas partes
+                            </p>
+                        </div>    
                 </div>
                 {% endif %}
-                    
+                <div class="row d-flex align-item-center justify-content-center ">
+                    <div class="col-md-12 d-flex  border border-gray align-item-center justify-content-center">
+                        <h4 class="m-4 text-muted " style="font-family: 'Roboto Slab', serif; font-size:25px ;font-weight: 700px;" > Articulos que talves te interesen</h4>
+                    </div>
+                    {% for articulo in articulo.mas_producto  %}
+                        <div class="col-lg-3 ml-4 d-flex align-item-center justify-content-center">   
+                            <a href="{{articulo.mas_producto.get_absolute_url}}">         
+                            <div class="card border border-primary mt-2 mb-2" style="width: 250px; max-height: 300px;">
+                            <img src="{{articulo.imagen_presentacion.url}}" class="card-img-top" height="150px" width="200px">
+                            <div class="card-body text-center">
+                                <h6 class="card-title text-center">{{articulo.nombre}}</h6>
+                                <p class="text-primary m-0 card-text text-center">{{articulo.marca}}</p>
+                                
+                                
+                            </div>
+                            <div class="card-footer">
+                                <p class="card-text text-center float-right"> Precio : $ {{articulo.precio}}</p>
+                                <span class="badge text-white m-auto" style="background-color: {{articulo.categoria.color_descriptivo}};">{{articulo.categoria.nombre}}</span>
+                            </div>
+                            </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
                
             </div>
             <div class="col-md-1">
 
             </div>
         </div>
+        
     </div>
 {% endblock content %}
     
+
+
+{% block extra_js %}
+    <script src=" {% static 'js/js.js' %} "></script>
+{% endblock extra_js %}
     
