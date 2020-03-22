@@ -5,6 +5,12 @@ position_choices = (
     ("C","Centro"),
     ("D", "Derecha")
 )
+
+class Categorias(models.Model):
+    nombre = models.CharField(max_length=100, default="Sin categoria")
+    descripcion = models.CharField(max_length=100, default="Sin descripcion")
+    color_descriptivo = models.CharField(max_length=9, default="black")
+
 class Slider(models.Model):
     image = models.ImageField(upload_to="media")
     texto = models.TextField(max_length=500)
@@ -15,6 +21,7 @@ class Slider(models.Model):
 class Articulo(models.Model):
     nombre = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
+    categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE)
     imagen_presentacion = models.ImageField(upload_to="media", null=True)
     descripcion = models.TextField(max_length=500)
     imagen_referencia = models.ManyToManyField("ImagenRefencia")
@@ -30,5 +37,6 @@ class Articulo(models.Model):
 
    
 class ImagenRefencia(models.Model):
+   
     imagen = models.ImageField(upload_to="media")
     descripcion = models.TextField(max_length=50, null=True, blank=True)
