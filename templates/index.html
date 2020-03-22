@@ -57,50 +57,41 @@
     </div>
 
 </div>
-<div class="container mt-4 border-1 mb-2">
-    <div class="row wow fadeIn d-flex align-item-center justify-content-center">
-        <div class="col-lg-3 d-flex align-item-center justify-content-center">            
-            <div class="card border border-primary" style="width: 250px;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-        </div>
-        <div class="col-lg-3 d-flex align-item-center justify-content-center">            
-            <div class="card " style="width: 250px;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-        </div>
-        <div class="col-lg-3 d-flex align-item-center justify-content-center">            
-            <div class="card " style="width: 250px;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-        </div>
-        <div class="col-lg-3 d-flex align-item-center justify-content-center">            
-            <div class="card " style="width: 250px;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-        </div>
+<div class="container-fluid mt-4 ">
+    <div class="row">
+        <div class="col-md-2 ">
 
     </div>
+    <div class="col-md-9 border border-gray mb-2">
+       <div class="row wow fadeIn d-flex align-item-center justify-content-center">
+        <div class="col-md-12 border border-bottom-gray "  >
+            <h5 class="mt-4 mb-4 float-left tabs">  Ultimos productos agregados</h5>
+        </div>
+        {% for articulo in nuevos  %}
+        <div class="col-lg-3 d-flex align-item-center justify-content-center">   
+            <a href="{{articulo.get_absolute_url}}">         
+            <div class="card border border-primary mt-2 mb-2" style="width: 250px;">
+              <img src="{{articulo.imagen_presentacion.url}}" class="card-img-top" height="150px">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{articulo.nombre}}</h5>
+                <h4 class="text-primary card-text text-center">{{articulo.marca}}</h4>
+                <p class="card-text text-center"> Precio : $ {{articulo.precio}}</p>
+                
+              </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+            
+       
+       
+
+    </div> 
+    </div>
+    <div class="col-md-1"></div>
+    </div>
+    
+    
 </div>
 
 {% endblock content %}
