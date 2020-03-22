@@ -7,3 +7,14 @@
     margin-left: 350px;
     margin-bottom: 200px;
 }
+
+.price{
+    color: #333;
+    font-family: 'Comfortaa', cursive;
+}
+
+.descuento{
+    text-decoration: line-through;
+    color: #333;
+    font-family: 'Comfortaa', cursive;
+}

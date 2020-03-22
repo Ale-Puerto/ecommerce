@@ -72,9 +72,10 @@
             <a href="{{articulo.get_absolute_url}}">         
             <div class="card border border-primary mt-2 mb-2" style="width: 250px;">
               <img src="{{articulo.imagen_presentacion.url}}" class="card-img-top" height="150px">
-              <div class="card-body">
-                <h5 class="card-title text-center">{{articulo.nombre}}</h5>
-                <h4 class="text-primary card-text text-center">{{articulo.marca}}</h4>
+              <div class="card-body text-center">
+                <h6 class="card-title text-center">{{articulo.nombre}}</h6>
+                <p class="text-primary card-text text-center">{{articulo.marca}}</p>
+                <span class="badge text-white m-auto" style="background-color: {{articulo.categoria.color_descriptivo}};">{{articulo.categoria.nombre}}</span>
                 <p class="card-text text-center"> Precio : $ {{articulo.precio}}</p>
                 
               </div>
