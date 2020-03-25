@@ -7,29 +7,30 @@
 {% endblock title %}
     
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+{% endblock extra_css %}
+    
 
 {% block content %}
 <div class="container-fluid">
     <div class="row" style="height: 400px;">
         <div class="col-md-2" style="height: 300px;"> 
-
+            {% include 'categorias_templates.html' %}
         </div>
-        <div class="col-md-9" style="height: 200px;">
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <div class="col-md-9 ml-0 mt-1" style="height: 200px;">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style="margin-left: -15px; margin-right:-15px;">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                   <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner">
+                <div class="carousel-inner " >
                     {% for image in slider %}
-                        
                         {% if forloop.first %}
-                        <div class="carousel-item active">
-                            
+                        <div class="carousel-item active">  
                         {% else %}
-                        <div class="carousel-item ">
-                            
+                        <div class="carousel-item ">  
                         {% endif %}
                         <img src="{{image.image.url}}" class="d-block w-100" height="400px"">
                             <div class="carousel-caption d-none d-md-block" id="position-{{image.get_posicion_display}}">
@@ -37,9 +38,7 @@
                                 <p>{{image.texto_corto}}</p>
                             </div>
                         </div> 
-                            
-                    {% endfor %}    
-                  
+                    {% endfor %}     
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -49,13 +48,26 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-              </div>
+            </div>
         </div> 
         <div class="col-md-1  float-right">
-
+            <ul class="nav flex-column social-bar">
+                    <li class="nav-item personalizado">
+                      <a class="nav-link  facebook icon  " href="#" style="padding-top: 10px;"><span class="icon-facebook2"></span></a>
+                    </li>
+                    <li class="nav-item personalizado">
+                        <a class="nav-link   icon" href="#" style="padding-top: 10px;"><span class="icon-youtube"></span></a>
+                    </li>
+                    <li class="nav-item personalizado">
+                        <a class="nav-link  icon" href="#" style="padding-top: 10px;"><span class="icon-instagram"></span></a>
+                    </li>
+                    <li class="nav-item personalizado">
+                        <a class="nav-link icon " href="#" style="padding-top: 10px;"><span class="icon-twitter"></span></span></a>
+                    </li>
+             
+            </ul>
         </div>
     </div>
-
 </div>
 <div class="container-fluid mt-4 ">
     <div class="row">
@@ -64,18 +76,18 @@
     </div>
     <div class="col-md-9 border border-gray mb-2">
        <div class="row wow fadeIn d-flex align-item-center justify-content-center">
-        <div class="col-md-12 border border-bottom-gray "  >
-            <h5 class="mt-4 mb-4 float-left tabs">  Ultimos productos agregados</h5>
+        <div class="col-md-12  border-bottom "  >
+            <h5 class="mt-4 mb-4 float-left tabs encabezado">  Ultimos productos agregados</h5>
         </div>
         {% for articulo in nuevos  %}
         <div class="col-lg-3 d-flex align-item-center justify-content-center">   
-            <a href="{{articulo.get_absolute_url}}">         
-            <div class="card border border-primary mt-2 mb-2" style="width: 250px;">
+            <a class="card-enlace" href="{{articulo.get_absolute_url}}">         
+            <div class="card  mt-2 mb-2" style="width: 250px; border: 0;">
               <img src="{{articulo.imagen_presentacion.url}}" class="card-img-top" height="150px">
               <div class="card-body text-center">
-                <h6 class="card-title text-center">{{articulo.nombre}}</h6>
-                <p class="text-primary card-text text-center">{{articulo.marca}}</p>
-                <span class="badge text-white m-auto" style="background-color: {{articulo.categoria.color_descriptivo}};">{{articulo.categoria.nombre}}</span>
+                <h6 class="card-title text-center single-liner card-enlace" style="word-wrap: normal; text-decoration: none;">{{articulo.nombre}}</h6>
+                <p class=" card-text text-center">{{articulo.marca}}</p>
+              <span class="badge text-white m-auto" style="background-color: {{articulo.categoria.color_descriptivo}}; margin-top:10px">{{articulo.categoria.nombre}}</span>
                 <p class="card-text text-center"> Precio : $ {{articulo.precio}}</p>
                 
               </div>
