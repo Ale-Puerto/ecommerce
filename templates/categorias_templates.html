@@ -1,0 +1,20 @@
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+{% endblock extra_css %}
+    
+<div class="card mt-1">
+    <div class="card-head">
+        <h3 class="titulo ml-3 mt-2"> Categorias </h3>
+    </div>
+    <div class="card-body">
+        <ul class="nav flex-column">
+        {% for categoria in  categoria %}
+            <li class="nav-item enlace border-bottom">
+            <a class="nav-link  " href="#" style="hover: color : {{categoria.color}}">{{categoria.nombre}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+            
+    </div>
+</div>
