@@ -1,0 +1,30 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="row mt-4 mb-4 d-flex aling-item-center justify-content-center">
+  <div class="col-3 d-flex flex-column justify-content-center" style="background-color: deepskyblue;">
+    <img class="d-flex justify-content-center aling-item-center m-auto" src="{% static 'images/anadir.png' %}" width="200px", width="200px">
+  </div>
+  <div class="col-3 bg-white">
+    <h1 class="encabezado text-center">{% trans "Sign Up" %}</h1>
+
+    <p class="ml-4 encabezado text-danger">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    
+    <form class="signup  m-4" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form|crispy}}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button  class="btn btn-primary text-white m-2" type="submit">{% trans "Sign Up" %} &raquo;</button>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
