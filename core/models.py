@@ -11,6 +11,9 @@ class Categorias(models.Model):
     descripcion = models.CharField(max_length=100, default="Sin descripcion")
     color_descriptivo = models.CharField(max_length=9, default="black")
 
+    def __str__(self):
+        return self.nombre
+
 class Slider(models.Model):
     image = models.ImageField(upload_to="media")
     texto = models.TextField(max_length=500)
