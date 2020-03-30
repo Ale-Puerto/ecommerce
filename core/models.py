@@ -1,10 +1,14 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
+
 # Create your models here.
+
 position_choices = (
     ("C","Centro"),
     ("D", "Derecha")
 )
+
 
 class Categorias(models.Model):
     nombre = models.CharField(max_length=100, default="Sin categoria")
@@ -13,6 +17,7 @@ class Categorias(models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 class Slider(models.Model):
     image = models.ImageField(upload_to="media")
@@ -38,7 +43,32 @@ class Articulo(models.Model):
         
         return reverse('core:producto', kwargs={'pk': self.pk})
 
+    def add_to_cart(self):
+        return reverse('core:add_to_cart',
+                        kwargs={'pk':self.pk}
+        )
+
    
+class ArticuloPedido(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
+    ordenado = models.BooleanField(default=False)
+    cantidad = models.IntegerField(default=1)
+
+    def __str__(self):
+        return "{} de {}".format(self.cantidad, self.articulo)
+
+
+
+class Pedido(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                            on_delete=models.CASCADE
+                            )
+    articulos_pedidos= models.ManyToManyField(ArticuloPedido)
+    fecha_inicio = models.DateTimeField(auto_now=True)
+    fecha_pedido = models.DateTimeField()
+    ordenado = models.BooleanField(default=False)
+
 class ImagenRefencia(models.Model):
    
     imagen = models.ImageField(upload_to="media")
