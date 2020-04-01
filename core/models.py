@@ -58,6 +58,20 @@ class ArticuloPedido(models.Model):
     def __str__(self):
         return "{} de {}".format(self.cantidad, self.articulo)
 
+    def subtotal_precio(self):
+        return self.cantidad * self.articulo.precio
+
+    def descuento(self):
+        return self.cantidad * self.articulo.descuento
+
+    def total_con_descuento(self):
+        return self.subtotal_precio() - self.descuento()
+
+    def total(self):
+        if self.articulo.descuento:
+            return self.total_con_descuento()
+        else:
+            return self.subtotal_precio()
 
 
 class Pedido(models.Model):

@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 class Inicio(View):
@@ -39,7 +40,50 @@ class ArticuloDetailView(DetailView):
 
         return context
 
+class ListaCarritoView(View):
+    def get(self, *args,**kwargs):
+        try:
+            lista = Pedido.objects.get(user=self.request.user, ordenado=False)
+            context = {
+                'object' : lista
+            }
+            return render(self.request, "lista_carrito.html", context)
+        except ObjectDoesNotExist:
+            pass
 
+
+@login_required
+def remove_single_to_cart(request, pk):
+  
+    articulo = get_object_or_404(Articulo, pk=pk)
+    pedido = Pedido.objects.filter(
+            user = request.user,
+            
+            ordenado = False
+    )
+        
+    if pedido.exists():
+            pedido = pedido[0]
+            if pedido.articulos_pedidos.filter(articulo__pk=articulo.pk).exists():
+                articulo_pedido = ArticuloPedido.objects.filter(
+                    user = request.user,
+                    articulo = articulo,
+                    ordenado = False
+                )[0]
+                if articulo_pedido.cantidad > 1:
+                    articulo_pedido.cantidad -= 1
+                    articulo_pedido.save()
+                    return redirect("core:lista_carrito")
+                else:
+                    pedido.articulos_pedidos.remove(articulo_pedido)
+                    return redirect("core:lista_carrito")
+            else:
+                return redirect("core:lista_carrito")
+    else:
+        return redirect("core:inicio")
+  
+
+@login_required
 def add_to_cart(request, pk):
     articulo = get_object_or_404(Articulo, pk=pk)
     articulo_pedido, create = ArticuloPedido.objects.get_or_create(
