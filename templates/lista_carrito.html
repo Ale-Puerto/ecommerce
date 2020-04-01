@@ -2,6 +2,50 @@
 {% load static %}
 
 {% block content %}
-    
+    <div class="container">
+        <div class="row m-4">
+            <div class="col-md-12">
+                
+                {% if object %}
+                <table class="table">
+                    <caption>Lista de articulos</caption>
+                    <thead>
+                      <tr>
+                        <th class="titulo" scope="col">#</th>
+                        <th class="enlace" scope="col">Articulo</th>
+                        <th class="titulo" scope="col">Precio </th>
+                        <th class="titulo" scope="col">Cantidad</th>
+                        <th class="titulo" scope="col">Sub-total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for articulo in object.articulos_pedidos.all %}   
+                        <tr>
+                            <th scope="row">{{foorloop.counter}}</th>
+                            <td>{{articulo.articulo.nombre}}</td>
+                            <td>{{articulo.articulo.precio}}</td>
+                            <td>
+                                <a href="{% url 'core:add_to_cart' articulo.articulo.pk %}"><i class="fas fa-plus mr-2" style="color: gray;"></i></a>
+                                {{articulo.cantidad}}
+                               
+                                <a href="{% url 'core:remove_single_to_cart' articulo.articulo.pk %}"><i class="fas fa-minus ml-2" style="color:gray;"></i></a>
+                            </td>
+                            <td>
+                                {{articulo.total}}
+                                <a  class="m-2" href="  ">
+                                    <i class="fas fa-trash text-danger" class="float-rigth ml-4 bg-danger"></i>
+                                </a>
+                            </td>
+                        </tr> 
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+                    
+                
+            </div>
+        </div>
+    </div>
 {% endblock content %}
     
