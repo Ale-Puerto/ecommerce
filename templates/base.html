@@ -1,4 +1,5 @@
 {% load static %}
+{% load categorias_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
     {% block extra_css %}
         
     {% endblock extra_css %}
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet"> 
         
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -93,10 +95,37 @@
 
 {% endblock header %}
 
-    
-{% block content %}
+<div class="row">
+  <div class="col-md-2 ml-2">
+    {% mostrar_categorias as categorias%}
+    <div class="card mt-1">
+      <div class="card-head">
+          <h3 class="titulo ml-3 mt-2"> Categorias </h3>
+      </div>
+      <div class="card-body">
+          <ul class="nav flex-column">
+          {% for categoria in  categorias %}
+           
+              <li class="nav-item enlace border-bottom">
+              <a class="nav-link  " href="#" style="hover: color : {{categoria.color}}">{{categoria.nombre}}</a>
+              </li>
+          {% endfor %}
+      </ul>
+              
+      </div>
+    </div>
+  </div>
+ 
+  <div class="col-md-9">
+    {% block content %}
         
-{% endblock content %}
+    {% endblock content %}
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+</div>
+
         
     
 {% block footer %}

@@ -1,0 +1,30 @@
+Agregando modelos al admin
+
+# Por favor ingresa el mensaje del commit para tus cambios. Las
+#  líneas que comiencen con '#' serán ignoradas, y un mensaje
+#  vacío aborta el commit.
+#
+# Committer: Ale_Tellez <ale_tellez@localhost.localdomain>
+#
+# En la rama master
+# Tu rama está adelantada a 'origin/master' por 4 commits.
+#   (usa "git push" para publicar tus commits locales)
+#
+# Cambios a ser confirmados:
+#	modificado:     core/admin.py
+#
+# Cambios no rastreados para el commit:
+#	modificado:     core/__pycache__/admin.cpython-37.pyc
+#	modificado:     core/__pycache__/models.cpython-37.pyc
+#	modificado:     core/__pycache__/urls.cpython-37.pyc
+#	modificado:     core/__pycache__/views.cpython-37.pyc
+#	modificado:     db.sqlite3
+#	modificado:     ecommerce/__pycache__/settings.cpython-37.pyc
+#	modificado:     ecommerce/__pycache__/urls.cpython-37.pyc
+#	modificado:     templates/index.html
+#	modificado:     templates/productodetail.html
+#
+# Archivos sin seguimiento:
+#	.gitignore
+#	static/images/orden.png
+#

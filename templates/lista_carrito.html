@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+{% endblock extra_css %}
+    
 {% block content %}
     <div class="container">
         <div class="row m-4">
@@ -12,7 +15,7 @@
                     <thead>
                       <tr>
                         <th class="titulo" scope="col">#</th>
-                        <th class="enlace" scope="col">Articulo</th>
+                        <th class="titulo" scope="col">Articulo</th>
                         <th class="titulo" scope="col">Precio </th>
                         <th class="titulo" scope="col">Cantidad</th>
                         <th class="titulo" scope="col">Sub-total</th>
@@ -22,16 +25,26 @@
                         
                         {% for articulo in object.articulos_pedidos.all %}   
                         <tr>
-                            <th scope="row">{{foorloop.counter}}</th>
-                            <td>{{articulo.articulo.nombre}}</td>
-                            <td>{{articulo.articulo.precio}}</td>
-                            <td>
+                            <th class="titulo" scope="row">{{foorloop.counter}}</th>
+                            <td class="titulo">{{articulo.articulo.nombre}}</td>
+                            <td class="titulo">
+                                
+                                {% if articulo.articulo.descuento %}
+                                 {{articulo.articulo.precio}}
+                                 <span class="badge badge-danger ml-1">-{{articulo.articulo.descuento}}</span>
+                                 {% else %}
+                                 {{articulo.articulo.precio}}
+                                {% endif %}
+                                    
+                                
+                            </td>
+                            <td class="titulo">
                                 <a href="{% url 'core:add_to_cart' articulo.articulo.pk %}"><i class="fas fa-plus mr-2" style="color: gray;"></i></a>
                                 {{articulo.cantidad}}
                                
                                 <a href="{% url 'core:remove_single_to_cart' articulo.articulo.pk %}"><i class="fas fa-minus ml-2" style="color:gray;"></i></a>
                             </td>
-                            <td>
+                            <td class="titulo">
                                 {{articulo.total}}
                                 <a  class="m-2" href="  ">
                                     <i class="fas fa-trash text-danger" class="float-rigth ml-4 bg-danger"></i>
@@ -44,6 +57,10 @@
                 {% endif %}
                     
                 
+            </div>
+            <div class="col-md-12">
+                <a href=" {% url 'core:inicio' %}" class="btn btn-success"><i class="fas fa-cart-plus ml-1"></i> Seguir comprando</a>
+                <a href="#" class="btn btn-danger"><i class="far fa-credit-card ml-1"></i>Facturas carrito</a>
             </div>
         </div>
     </div>

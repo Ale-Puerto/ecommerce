@@ -3,6 +3,7 @@ from core.models import Categorias
 
 register = template.Library()
 
-@register.filter
+@register.simple_tag
 def mostrar_categorias():
-    return Categorias.objects.all()
+    categorias = Categorias.objects.all()
+    return categorias
