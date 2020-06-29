@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django_countries.fields  import CountryField
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 # Create your models here.
 
@@ -81,9 +84,49 @@ class Pedido(models.Model):
     articulos_pedidos= models.ManyToManyField(ArticuloPedido)
     fecha_inicio = models.DateTimeField(auto_now=True)
     fecha_pedido = models.DateTimeField()
+    direccion_envio = models.ForeignKey('Direccion', on_delete=models.CASCADE)
     ordenado = models.BooleanField(default=False)
+    entregado = models.BooleanField(default=False)
+    pago = models.ForeignKey('Pago', on_delete=models.SET_NULL, blank=True, null=True)
+
+    def total_pagar(self):
+        total = 0
+        for articulo in self.articulos_pedidos.all():
+            total +=  articulo.total()
+        return total
+
 
 class ImagenRefencia(models.Model):
    
     imagen = models.ImageField(upload_to="media")
     descripcion = models.TextField(max_length=50, null=True, blank=True)
+
+
+class Direccion(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                            on_delete=models.CASCADE
+                        )
+    nombre_referencia = models.CharField(max_length=100)
+    telefono = PhoneNumberField(blank=True, help_text='Numero de contacto')
+    direccion_especifica = models.CharField(max_length=50)
+    pais = CountryField(multiple=False)
+    provincia = models.CharField(max_length=50)
+    cuidad = models.CharField(max_length=50)
+    codigo_postal = models.IntegerField()
+    default = models.BooleanField(default=False)
+    
+
+    def __str__(self):
+        return self.user.username
+    
+
+class Pago(models.Model):
+    stripe_charger_id = models.CharField(max_length=50)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                            on_delete=models.CASCADE
+                            )
+    total_pago = models.FloatField()
+    timestap = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username

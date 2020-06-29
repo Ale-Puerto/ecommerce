@@ -4,7 +4,8 @@ from .models import (Slider,
                     ImagenRefencia,
                     Categorias,
                     Pedido,
-                    ArticuloPedido
+                    ArticuloPedido,
+                    Direccion
                     )
 
 admin.site.register(Slider)
@@ -13,3 +14,4 @@ admin.site.register(ImagenRefencia)
 admin.site.register(Categorias)
 admin.site.register(Pedido)
 admin.site.register(ArticuloPedido)
+admin.site.register(Direccion)

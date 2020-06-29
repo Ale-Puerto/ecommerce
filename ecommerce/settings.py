@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
+    'phonenumber_field',
+    'django_countries',
     'core',
 ]
 
@@ -136,3 +137,5 @@ MEDIA_URL = "/media/"
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
+
+PHONENUMBER_DB_FORMAT = 'E164'

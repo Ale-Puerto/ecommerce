@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Revision
+{% endblock title %}
+    
+
+{% block content %}
+   <div class="container">
+      
+       <div class="row">
+           <div class="col-md-8">
+            <h3 class="encabezado"> <i class="fas fa-truck mr-1"></i>Informacion de envio </h3>
+                <form method="POST" id="formulario">
+                {% csrf_token %}
+                <div id="contenedor">
+                    <div class="form-row mt-4 mb-4">
+                        <div class="col-8">
+                            <label class="titulo" for="nombre_referencia"><i class="far fa-id-badge mr-1"></i>Nombre referencia</label>
+                            {{form.nombre_referencia}}
+                        </div>
+                        <div class="col-4">
+                            <label class="titulo" for="telefono"><i class="fas fa-phone mr-1"></i>Telefono</label>
+                            {{form.telefono}}
+                        </div>
+                    
+                    </div>
+                    <div class="form-row mt-4 mb-4">
+                        <div class="col-lg-8">
+                            <label class="titulo" for="direccion_especifica"><i class="fas fa-map-marker mr-1"></i>Direccion Especifica</label>
+                            {{form.direccion_especifica}}
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="codigo_postal" class="titulo"><i class="fas fa-mail-bulk mr-1"></i>Codigo Postal</label>
+                            {{form.codigo_postal}}
+                        </div>
+                        
+                    </div>
+                    <div class="form-row mb-4 mt-4">
+                        <div class="col-lg-4">
+                            <label for="country" class="titulo"><i class="fas fa-globe-americas mr-1"></i>Pais</label>
+                            {{form.pais}}
+    
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="Provincia" class="titulo"><i class="far fa-building mr-1"></i>Provicia/Barrio</label>
+                            {{form.provincia}}
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="ciudad" class="titulo"><i class="fas fa-city mr-1"></i>Ciudad</label>
+                            {{form.ciudad}}
+                        </div>
+                    </div>
+                        
+                </div>
+                
+                    {% if default %}
+                        <label class="titulo mr-1" for="default">Usar por defecto {{ default.direccion_especifica | truncatewords:"4"}}</label>
+                        {{form.default}}     
+                    {% endif %}
+                   
+                                 
+
+                    <label class="titulo ml-4 mr-1" for="default">Guardar para la proxima vez</label>
+                    {{form.guardar}}
+                    <div class="row">
+                        <button type="submit" class="btn-lg btn-success mt-4 ml-4 "><i class="fas fa-check mr-1"></i>Confirmar </button>
+                    </div>
+                    
+                </form>
+           </div>
+           <div class="col-md-4">
+               {% include 'lista_articulos.html' %}
+           </div>
+       </div>
+   </div>
+  
+   
+{% endblock content %}
+{% block extra_css %}
+<script src="{% static 'js/js.js' %}" crossorigin="anonymous"></script>
+{% endblock extra_css %}

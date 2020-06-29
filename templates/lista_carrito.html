@@ -51,16 +51,27 @@
                                 </a>
                             </td>
                         </tr> 
+                        
                         {% endfor %}
+                        <tr>
+                            <td colspan="4"><b>Order Total</b></td>
+                            <td><b>${{ object.total_pagar }}</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><a href=" {% url 'core:inicio' %}" class="btn btn-success"><i class="fas fa-cart-plus ml-1"> </i> Seguir comprando</a>
+                            <a href=" {% url 'core:verificar' %} " class="btn btn-danger"><i class="far fa-credit-card ml-1"></i>Facturas carrito</a> </td>
+                        </tr>
                     </tbody>
                 </table>
+                {% else %}
+                    <h1 class="titulo text-center">No tienes articulos agregados</h1>
                 {% endif %}
                     
                 
             </div>
             <div class="col-md-12">
-                <a href=" {% url 'core:inicio' %}" class="btn btn-success"><i class="fas fa-cart-plus ml-1"></i> Seguir comprando</a>
-                <a href="#" class="btn btn-danger"><i class="far fa-credit-card ml-1"></i>Facturas carrito</a>
+                
+                
             </div>
         </div>
     </div>
