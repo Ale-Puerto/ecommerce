@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{% static 'css/personalizado.css' %}">
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -98,14 +99,16 @@
         </div>
       {% endblock categoria %}
       
-      {% block contenido %}
+     
         <div class="col-9 mr-0">
+          
+          {% block menu-secundario %}
           <div class="container-fluid mr-0">
             <div class="row mr-0" id="header-top">
               <div class="col-md-12">
                 <ul class="nav pt-2">
                   <li class="nav-item">
-                    <a class="nav-link active menu-secundario menu-secundario-color border-right" href="#">INICIO</a>
+                    <a class="nav-link active menu-secundario menu-secundario-color border-right" href="{% url 'core:inicio' %}">INICIO</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link menu-secundario menu-secundario-color border-right href="#">ABOUT</a>
@@ -121,13 +124,77 @@
               </div>
             </div>
           </div>
+          {% endblock menu-secundario %}
         </div>
-      {% endblock contenido %}
+      
         
         
     </div>
+
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-9 align-self-end">
+        {% block contenido %}
+          
+        {% endblock contenido %} 
+      </div>
+    </div>
   </div>
-    
+  <div class="container-fluid" id="header-top"style="height: 500px;">
+    <div class="container" id="header-top">
+        <div class="row border-bottom">
+          <div class="col-3 mt-4">
+            <img class="mt-4" src="{% static 'images/logo-1.png' %}" alt="" srcset="">
+          </div>
+          <div class="col-5 mt-4">
+            <form action="" method="post" class="mt-4">
+              <div class="input-group mb-3" style="height: 50px;">
+                <input type="text" class="form-control  " id="src" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 80%;">
+                <div class="input-group-append" id="src">
+                  <button class="btn bg-blue  text-white rounded-0"  type="button" id="button-addon2 " style="height: 50px;">Buscar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-4 mt-4">
+            <ul class="mt-2 nav justify-content-end">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img src="https://img.icons8.com/color/48/000000/facebook-circled.png"/>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img src="https://img.icons8.com/color/48/000000/google-plus.png"/>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <img src="https://img.icons8.com/color/48/000000/twitter-circled.png"/>
+                </a>
+              </li>
+            </ul>
+           
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-4">
+            
+          </div>
+          <div class="col-4">
+            
+          </div>
+        </div>
+    </div>
+  </div>
 
 
 </div>
