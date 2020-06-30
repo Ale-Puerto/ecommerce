@@ -22,11 +22,11 @@ def campos_validados(values):
 class Inicio(View):
     def get(self, request):
         qs = Articulo.objects.reverse()[:5]
-        get_categorias = Categorias.objects.all()
+        get_categorias = Categorias.objects.reverse()[:5]
         context = {
             "slider" : Slider.objects.all(),
             "nuevos" : qs,
-            "categoria" : get_categorias
+            "categorias" : get_categorias
         }
         return render (self.request, "index.html", context)
 
