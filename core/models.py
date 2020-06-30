@@ -3,7 +3,8 @@ from django.urls import reverse
 from django.conf import settings
 from django_countries.fields  import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
-
+from sorl.thumbnail import ImageField, get_thumbnail
+from PIL import Image
 
 # Create your models here.
 
@@ -14,6 +15,7 @@ position_choices = (
 
 
 class Categorias(models.Model):
+    imagen_referencia = ImageField(upload_to='media/categorias', blank=True, null=True)
     nombre = models.CharField(max_length=100, default="Sin categoria")
     descripcion = models.CharField(max_length=100, default="Sin descripcion")
     color_descriptivo = models.CharField(max_length=9, default="black")
@@ -27,7 +29,6 @@ class Slider(models.Model):
     texto = models.TextField(max_length=500)
     texto_pequeño = models.TextField(max_length=500)
     posicion = models.CharField(max_length=1, choices=position_choices)
-
 
 class Articulo(models.Model):
     nombre = models.CharField(max_length=50)
