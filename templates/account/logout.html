@@ -4,18 +4,44 @@
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
-{% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+{% block contenido %}
+<div class="container-fluid">
+  <div class="col-2 mt-4">
+    <a  class="mt-4" href="{% url 'core:inicio' %}">
+      <img  class="mr-2 " src="https://img.icons8.com/android/24/000000/left.png"/><span class="texto-form text-decoration-none">
+        Regresar 
+      </span>
+    </a>
+  </div>
+</div>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center">
+      <div class="card rounded-0" style="width: 500px;">
+        <div class="card-body">
+          <h1 class="text-center title-account">{% trans "Sign Out" %}</h1>
+          <p class="border-bottom mt-4" ></p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
+          <p class="texto-form text-center">{% trans 'Are you sure you want to sign out?' %}</p>
+          <form method="post" action="{% url 'account_logout' %} " class="mb-2">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+
+            <div class="group-form d-flex align-item-center justify-content-center mt-4">
+              <button class="btn-account" type="submit">{% trans 'Sign Out' %}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
 
 {% endblock %}
