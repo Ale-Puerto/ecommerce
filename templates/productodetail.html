@@ -20,9 +20,8 @@
                 
                 {% if articulo %}
                 <div class="row d-flex">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="row">
-                            
                             <ul class="nav flex-column" >
                                 {% for image in articulo.articulo.imagen_referencia.all  %}    
                                 <li class="nav-item m-2 border border-gray" id="lista">
@@ -141,37 +140,34 @@
                         </div>    
                 </div>
                 {% endif %}
-                <div class="row d-flex align-item-center justify-content-center ">
-                    <div class="col-md-12 d-flex  border border-gray align-item-center justify-content-center">
-                        <h4 class="m-4 text-muted " style="font-family: 'Roboto Slab', serif; font-size:25px ;font-weight: 700px;" > Articulos que talves te interesen</h4>
-                    </div>
-                    {% for articulo in articulo.mas_producto  %}
-                        <div class="col-lg-3 ml-4 d-flex align-item-center justify-content-center">   
-                            <a href="{{articulo.mas_producto.get_absolute_url}}">         
-                            <div class="card border border-primary mt-2 mb-2" style="width: 250px; max-height: 300px;">
-                            <img src="{{articulo.imagen_presentacion.url}}" class="card-img-top" height="150px" width="200px">
-                            <div class="card-body text-center">
-                                <h6 class="card-title text-center">{{articulo.nombre}}</h6>
-                                <p class="text-primary m-0 card-text text-center">{{articulo.marca}}</p>
-                                
-                                
-                            </div>
-                            <div class="card-footer">
-                                <p class="card-text text-center float-right"> Precio : $ {{articulo.precio}}</p>
-                                <span class="badge text-white m-auto" style="background-color: {{articulo.categoria.color_descriptivo}};">{{articulo.categoria.nombre}}</span>
-                            </div>
-                            </div>
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-               
             </div>
-          
         </div>
-        
     </div>
 {% endblock contenido %}
+
+{% block contenedor-completo %}
+    <div class="row border-bottom mt-4">
+        <p class="titulo mb-2" >Productos relacionados</p>
+    </div>
+    <div class="row mt-4">
+        {% for producto_nuevo in articulo.mas_producto %}
+        <div class="col-3 d-flex">
+            <div class="card  rounded-0 mb-4" style="width: 250px;">
+                <a class="enlace" href="{{producto_nuevo.get_absolute_url}}">
+                <div class="card-body pl-0">
+                  <h5 class="card-title text-center text-gray">{{producto_nuevo.nombre | truncatechars:20}}</h5>
+                  <img class="ml-0 mx-auto d-block"  src="{{producto_nuevo.imagen_presentacion.url}}" width="180px" height="220px">
+                  
+                </div>
+                <div class="card-footer bg-white">
+                  <p class="p font-weight-bold" >  $ {{producto_nuevo.precio}}</p>
+                </div>
+              </a>
+              </div>
+        </div>  
+        {% endfor %}
+    </div>
+{% endblock contenedor-completo %}
     
 
 

@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'phonenumber_field',
     'django_countries',
-
     'core',
     'sorl.thumbnail',
 ]
@@ -140,4 +139,16 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 
+
 PHONENUMBER_DB_FORMAT = 'E164'
+
+AUTHENTICATION_BACKENDS = (
+   
+    # Necesaria para realizar el login usando username en el 
+    # administrador de Django, independiente de django allauth
+    'django.contrib.auth.backends.ModelBackend',
+
+    # métodos de autenticación especifica, como por ejemplo email
+    'allauth.account.auth_backends.AuthenticationBackend',
+  
+)

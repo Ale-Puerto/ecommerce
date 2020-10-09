@@ -85,7 +85,7 @@ class Pedido(models.Model):
     articulos_pedidos= models.ManyToManyField(ArticuloPedido)
     fecha_inicio = models.DateTimeField(auto_now=True)
     fecha_pedido = models.DateTimeField()
-    direccion_envio = models.ForeignKey('Direccion', on_delete=models.CASCADE)
+    direccion_envio = models.ForeignKey('Direccion', on_delete=models.SET_NULL, blank=True, null=True)
     ordenado = models.BooleanField(default=False)
     entregado = models.BooleanField(default=False)
     pago = models.ForeignKey('Pago', on_delete=models.SET_NULL, blank=True, null=True)

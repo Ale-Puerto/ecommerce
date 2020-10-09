@@ -3,49 +3,55 @@
 {% block extra_css %}
 <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
 {% endblock extra_css %}
-    
-{% block content %}
-    <div class="container">
-        <div class="row m-4">
-            <div class="col-md-12">
+
+
+{% block contenedor-menus %}{% endblock contenedor-menus %}
+
+{% block contenedor-completo %}
+    <div class="container p-0">
+        <div class="row mt-4 p-0">
+            <div class="col-md-12 m-0">
+                <img src="{% static 'images/baner.jpg' %}" width="100%">
+            </div>
+            <div class="col-md-12 mb-4 mt-4">
                 
                 {% if object %}
-                <table class="table">
-                    <caption>Lista de articulos</caption>
+                <table class="table mb-4">
                     <thead>
                       <tr>
-                        <th class="titulo" scope="col">#</th>
-                        <th class="titulo" scope="col">Articulo</th>
-                        <th class="titulo" scope="col">Precio </th>
-                        <th class="titulo" scope="col">Cantidad</th>
-                        <th class="titulo" scope="col">Sub-total</th>
+                        <th class="titul-table" scope="col">Imagen</th>
+                        <th class="titulo-table" scope="col">Articulo</th>
+                        <th class="titulo-table" scope="col">Precio </th>
+                        <th class="titulo-table" scope="col">Cantidad</th>
+                        <th class="titulo-table" scope="col">Sub-total</th>
                       </tr>
                     </thead>
                     <tbody>
                         
                         {% for articulo in object.articulos_pedidos.all %}   
                         <tr>
-                            <th class="titulo" scope="row">{{foorloop.counter}}</th>
-                            <td class="titulo">{{articulo.articulo.nombre}}</td>
-                            <td class="titulo">
+                            <th class="contenido-table" scope="row"><img src="{{articulo.articulo.imagen_presentacion.url}}" width="100px" height="100px"></th>
+                            <td class="contenido-table mt-4">
+                                <p class="mt-4">{{articulo.articulo.nombre}}</p>
+                            </td>
+                            <td class="texto-blue text-center">
                                 
                                 {% if articulo.articulo.descuento %}
-                                 {{articulo.articulo.precio}}
+                                 <p class="mt-4">{{articulo.articulo.precio}}</p>
                                  <span class="badge badge-danger ml-1">-{{articulo.articulo.descuento}}</span>
                                  {% else %}
-                                 {{articulo.articulo.precio}}
+                                 <p class="mt-4">{{articulo.articulo.precio}} </p>
                                 {% endif %}
                                     
                                 
                             </td>
-                            <td class="titulo">
-                                <a href="{% url 'core:add_to_cart' articulo.articulo.pk %}"><i class="fas fa-plus mr-2" style="color: gray;"></i></a>
-                                {{articulo.cantidad}}
-                               
-                                <a href="{% url 'core:remove_single_to_cart' articulo.articulo.pk %}"><i class="fas fa-minus ml-2" style="color:gray;"></i></a>
+                            <td class="contenido-table">
+                                <a  class="" href="{% url 'core:add_to_cart' articulo.articulo.pk %}"><i class="fas fa-plus mr-2" style="color: gray;"></i></a>
+                                <p class="mt-2">{{articulo.cantidad}}</p>
+                                <a class="" href="{% url 'core:remove_single_to_cart' articulo.articulo.pk %}"><i class="fas fa-minus ml-2" style="color:gray;"></i></a>
                             </td>
-                            <td class="titulo">
-                                {{articulo.total}}
+                            <td class="texto-blue text-center">
+                                <p class="mt-4">{{articulo.total}} </p>
                                 <a  class="m-2" href="  ">
                                     <i class="fas fa-trash text-danger" class="float-rigth ml-4 bg-danger"></i>
                                 </a>
@@ -54,26 +60,23 @@
                         
                         {% endfor %}
                         <tr>
-                            <td colspan="4"><b>Order Total</b></td>
-                            <td><b>${{ object.total_pagar }}</b></td>
+                            <td class="contenido-table" colspan="4"><b>Order Total</b></td>
+                            <td class="contenido-table"><b>${{ object.total_pagar }}</b></td>
                         </tr>
                         <tr>
-                            <td colspan="4"><a href=" {% url 'core:inicio' %}" class="btn btn-success"><i class="fas fa-cart-plus ml-1"> </i> Seguir comprando</a>
-                            <a href=" {% url 'core:verificar' %} " class="btn btn-danger"><i class="far fa-credit-card ml-1"></i>Facturas carrito</a> </td>
+                            <td colspan="6">
+                                <a href=" {% url 'core:inicio' %}" class="btn rounded-0 bg-gris"><i class="fas fa-cart-plus ml-1"> </i> Seguir comprando</a>
+                                <a href=" {% url 'core:verificar' %} " class="btn rounded-0 bg-blue text-white"><i class="far fa-credit-card ml-1"></i>Facturas carrito</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
                 {% else %}
                     <h1 class="titulo text-center">No tienes articulos agregados</h1>
                 {% endif %}
-                    
-                
-            </div>
-            <div class="col-md-12">
-                
                 
             </div>
         </div>
     </div>
-{% endblock content %}
+{% endblock contenedor-completo %}
     

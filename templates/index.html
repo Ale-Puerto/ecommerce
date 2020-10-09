@@ -14,7 +14,7 @@
 
 
 {% block contenido %}
-    <div class="container-fluid ml-0 pl-1 mt-4">
+    <div class="container-fluid ml-0 pl-1 mt-4 pr-0">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               {% for image in slider %}
@@ -64,8 +64,8 @@
       <div class="row mt-4">
         
         {% for producto_nuevo in nuevos %}
-          <div class="col-4">
-            <div class="card mr rounded-0 mb-4" style="width: 250px;">
+        <div class="col-4">
+            <div class="card  rounded-0 mb-4" style="width: 250px;">
               <a class="enlace" href="{{producto_nuevo.get_absolute_url}}">
               <div class="card-body pl-0">
                 <h5 class="card-title text-center text-gray">{{producto_nuevo.nombre | truncatechars:20}}</h5>

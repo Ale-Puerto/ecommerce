@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.views import View
 from .forms import DireccionForm, CuponForm
 from django.views.generic import DetailView
@@ -6,6 +7,7 @@ from django.utils.http import http_date
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -50,7 +52,7 @@ class ArticuloDetailView(DetailView):
 
         return context
 
-class ListaCarritoView(View):
+class ListaCarritoView(LoginRequiredMixin,View):
     def get(self, *args,**kwargs):
         try:
             lista = Pedido.objects.get(user=self.request.user, ordenado=False)
@@ -59,7 +61,7 @@ class ListaCarritoView(View):
             }
             return render(self.request, "lista_carrito.html", context)
         except ObjectDoesNotExist:
-            pass
+            return HttpResponse('vacio')
 
 class PagosView(View):
     def get(self, *args, **kwargs):
@@ -70,7 +72,7 @@ class PagosView(View):
         return render (self.request, "pago.html", context)
 
 
-class VerficarView(View):
+class VerficarView(LoginRequiredMixin,View):
     def get(self, *args , **kwargs):
         lista = Pedido.objects.get(user=self.request.user, ordenado=False)
         

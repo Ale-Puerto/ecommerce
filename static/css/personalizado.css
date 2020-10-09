@@ -2,7 +2,9 @@
     background-color: #f5f5f5;
     height: 60px;
 }
-
+.bg-gris{
+    background-color: #f5f5f5;
+}
 .bg-form{
     background-color: #fdfdfd;
 }
@@ -122,6 +124,13 @@ label{
     font-family: Roboto;
 }
 
+.text-enlace{
+    font-family: Open Sans,Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 22px;
+color: #666;
+font-weight: 400;
+}
 
 .btn-account {
     background-color: #fff;
@@ -136,3 +145,28 @@ label{
     -o-transition: all 0.35s ease;
     transition: all 0.35s ease;
 }
+
+.titulo-table{
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 14px;
+    color: #121212;
+    
+}
+
+.contenido-table{
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 14px;
+    color: #121212;
+}
+
+.texto-blue {
+    font-size: 18px;
+    color: #1467c1 !important;
+    font-family: Open Sans;
+    font-weight: 600;
+}
+

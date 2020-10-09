@@ -7,10 +7,10 @@
         {% for lista in pedido.articulos_pedidos.all %}
         <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-            <h6 class=" titulo my-0">{{ lista.cantidad}} x {{lista.articulo.nombre}}</h6>
-            <small class=" titulo text-muted">{{ order_item.item.description}}</small>
+            <h6 class=" texto-form my-0">{{ lista.cantidad}} x {{lista.articulo.nombre}}</h6>
+            <small class="texto-form text-muted">{{ order_item.item.description}}</small>
             </div>
-            <span class=" titulo text-muted">${{ lista.total }}</span>
+            <span class=" texto-form text-muted">${{ lista.total }}</span>
         </li>
         {% endfor %}
         {% if order.coupon %}
@@ -23,8 +23,8 @@
         </li>
         {% endif %}
         <li class="list-group-item d-flex justify-content-between">
-            <span class="titulo"> Total (USD)</span>
-            <strong class="titulo">${{ pedido.total_pagar }}</strong>
+            <span class="texto-form"> Total (USD)</span>
+            <strong class="texto-form">${{ pedido.total_pagar }}</strong>
         </li>
     </ul>
     
@@ -34,7 +34,7 @@
             <div class="input-group">
                 {{ cupon.codigo }}
                 <div class="input-group-append">
-                <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Canjear</button>
+                <button class="btn bg-blue  rounded-0 text-white btn-md waves-effect m-0" type="submit">Canjear</button>
                 </div>
             </div>
         </form>
