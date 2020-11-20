@@ -207,7 +207,6 @@ def remove_single_to_cart(request, pk):
     articulo = get_object_or_404(Articulo, pk=pk)
     pedido = Pedido.objects.filter(
             user = request.user,
-            
             ordenado = False
     )
         

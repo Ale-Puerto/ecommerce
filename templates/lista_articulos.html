@@ -1,13 +1,13 @@
 <div class="col-mb-4 mt-4">
-    <h3 class="encabezado text-center d-flex " >
+    <p class="encabezado text-secondary font-weight-bold  d-flex " >
         <i class="fas fa-list mr-1"></i>Informacion de su compra
         <span class="badge badge-secondary badge-pill">{{ pedido.articulos_pedidos.count }}</span>
-    </h3>
+    </p>
     <ul class="list-group mb-3 z-depth-1">
         {% for lista in pedido.articulos_pedidos.all %}
         <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-            <h6 class=" texto-form my-0">{{ lista.cantidad}} x {{lista.articulo.nombre}}</h6>
+            <p class="my-0">{{ lista.cantidad}} x {{lista.articulo.nombre}}</p>
             <small class="texto-form text-muted">{{ order_item.item.description}}</small>
             </div>
             <span class=" texto-form text-muted">${{ lista.total }}</span>

@@ -1,0 +1,11 @@
+Descargar python ultima version
+https://www.python.org/ 
+
+En la consola cmd o shell posicionarse en el proyecto y con este comando instalar las dependecia de proyecto
+
+pip install -r requerimientos.txt
+
+
+para correr el proyecto usar
+
+python manage.py runserver

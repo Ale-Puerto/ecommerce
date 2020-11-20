@@ -46,13 +46,13 @@
                                 
                             </td>
                             <td class="contenido-table">
-                                <a  class="" href="{% url 'core:add_to_cart' articulo.articulo.pk %}"><i class="fas fa-plus mr-2" style="color: gray;"></i></a>
+                                <a  class="" href="{% url 'core:add_to_cart' articulo.articulo.pk %}"><i class="fas fa-plus"></i></a>
                                 <p class="mt-2">{{articulo.cantidad}}</p>
-                                <a class="" href="{% url 'core:remove_single_to_cart' articulo.articulo.pk %}"><i class="fas fa-minus ml-2" style="color:gray;"></i></a>
+                                <a class="" href="{% url 'core:remove_single_to_cart' articulo.articulo.pk %}"><i class="fas fa-minus ml-2" ></i></a>
                             </td>
                             <td class="texto-blue text-center">
                                 <p class="mt-4">{{articulo.total}} </p>
-                                <a  class="m-2" href="  ">
+                                <a  class="m-2" href=" ">
                                     <i class="fas fa-trash text-danger" class="float-rigth ml-4 bg-danger"></i>
                                 </a>
                             </td>
