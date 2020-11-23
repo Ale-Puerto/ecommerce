@@ -1,5 +1,6 @@
 {% load static %}
 {% load categorias_tags %}
+{% load carrito_conteo_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,6 @@
   {% block header %}
   <div class="container-fluid">
     <div class="row" id="header-top">
-
       <div class="col-12">
         <div class="container">
           <ul class="nav justify-content-end pt-2" >
@@ -47,15 +47,14 @@
             </li>
           </ul>
         </div>
-
       </div>
     </div>
     <div class="container" id="menu-principal">
-      <div class="row mt-4">
-        <div class="col-3 mt-4">
-          <img src="{% static 'images/logo.png' %}" alt="" srcset="">
+      <div class="row mt-4 pt-0" >
+        <div class="col-3 mt-4 pt-0">
+          <img src="{% static 'images/logo-2.png' %}" width="200px" height="80px">
         </div>
-        <div class="col-6 mt-4">
+        <div class="col-5 mt-4">
           <form action="" method="post">
             <div class="input-group mb-3" style="height: 50px;">
               <input type="text" class="form-control mt-0 " style="height: 50px;" id="src" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 80%;">
@@ -65,18 +64,22 @@
             </div>
           </form>
         </div>
-        <div class="col-3 ">
+        <div class="col-4 ">
           <ul class="nav justify-content-end pt-2" >
             <li class="nav-item">
               <a class="nav-link " id="text-style"href="#">
                 <img src="https://img.icons8.com/windows/48/000000/like.png"/>
               </a>
             </li>
+            {% block carrito_conteo %}
+            
             <li class="nav-item">
               <a class="nav-link " id="text-style"href="{% url 'core:lista_carrito' %}">
+                <span class="badge badge-light text-primary font-weight-bold" style="font-size : 20px;">{{request.user | carrito_conteo}}</span>
                 <img src="https://img.icons8.com/wired/48/000000/shopping-bag-full.png"/>
               </a>
             </li>
+            {% endblock carrito_conteo %}
             <li class="nav-item ">
               
               {% if request.user.is_authenticated %}
@@ -102,9 +105,6 @@
   {% endblock header %}
   
   {% block contenedor-menus %}
-    
-  
-     
     <div class="container-fluid">
       <div class="row ">
         {% block categoria %}
@@ -144,7 +144,6 @@
                     <li class="nav-item">
                       <a class="nav-link menu-secundario menu-secundario-color border-right" href="#">VISION</a>
                     </li>
-                  
                   </ul>
                 </div>
               </div>
@@ -173,7 +172,7 @@
   <div class="container" id="header-top">
       <div class="row border-bottom">
         <div class="col-3 mt-4">
-          <img class="mt-4" src="{% static 'images/logo-1.png' %}" alt="" srcset="">
+          <img src="{% static 'images/logo-2.png' %}" width="200px" height="80px">
         </div>
         <div class="col-5 mt-4">
           <form action="" method="post" class="mt-4">
@@ -211,17 +210,61 @@
          
         </div>
       </div>
-      <div class="row">
-        <div class="col-4">
-
+      <section id="footer">
+        <div class="container">
+          <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <h5>Quick links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <h5>Quick links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <h5>Quick links</h5>
+              <ul class="list-unstyled quick-links">
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                <li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+              <ul class="list-unstyled list-inline social text-center">
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-google-plus"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02" target="_blank"><i class="fa fa-envelope"></i></a></li>
+              </ul>
+            </div>
+            <hr>
+          </div>	
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+              <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+              <p class="h6">© All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+            </div>
+            <hr>
+          </div>	
         </div>
-        <div class="col-4">
-          
-        </div>
-        <div class="col-4">
-          
-        </div>
-      </div>
+      </section>
   </div>
 </div>
 {% endblock footer %}

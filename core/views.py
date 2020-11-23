@@ -139,9 +139,7 @@ class VerficarView(LoginRequiredMixin,View):
             print(e)
             return redirect("core:verificar")
 
-
-
-    """def post(self, *args, **kwargs):
+    def post(self, *args, **kwargs):
         form = DireccionForm(self.request.POST or None)
         try:
             print(form.errors)
@@ -196,10 +194,10 @@ class VerficarView(LoginRequiredMixin,View):
                             direccion.default = True
                             direccion.save()
 
-                        return redirect("core:inicio")
+                        return redirect("core:pago")
         except Exception as e:
             print(e)
-            return redirect('core:verificar')"""
+            return redirect('core:verificar')
 
 @login_required
 def remove_single_to_cart(request, pk):

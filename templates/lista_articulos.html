@@ -1,46 +1,56 @@
-<div class="col-mb-4 mt-4">
-    <p class="encabezado text-secondary font-weight-bold  d-flex " >
-        <i class="fas fa-list mr-1"></i>Informacion de su compra
-        <span class="badge badge-secondary badge-pill">{{ pedido.articulos_pedidos.count }}</span>
-    </p>
-    <ul class="list-group mb-3 z-depth-1">
-        {% for lista in pedido.articulos_pedidos.all %}
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-            <p class="my-0">{{ lista.cantidad}} x {{lista.articulo.nombre}}</p>
-            <small class="texto-form text-muted">{{ order_item.item.description}}</small>
-            </div>
-            <span class=" texto-form text-muted">${{ lista.total }}</span>
-        </li>
-        {% endfor %}
-        {% if order.coupon %}
-        <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>{{ order.coupon.code }}</small>
-            </div>
-            <span class="text-success titulo">-${{ order.coupon.amount }}</span>
-        </li>
-        {% endif %}
-        <li class="list-group-item d-flex justify-content-between">
-            <span class="texto-form"> Total (USD)</span>
-            <strong class="texto-form">${{ pedido.total_pagar }}</strong>
-        </li>
-    </ul>
-    
-        {% if mostrar_cupon %}
-        <form class="card p-2" action="" method="POST">
-            {% csrf_token %}
-            <div class="input-group">
-                {{ cupon.codigo }}
-                <div class="input-group-append">
-                <button class="btn bg-blue  rounded-0 text-white btn-md waves-effect m-0" type="submit">Canjear</button>
+<div class="col-md-12 ">
+    <div class="card p-0 mt-0">
+        <div class="card-header bg-blue p-0">
+            <p class="text-white ml-4 mt-3"> <i class="fas fa-list mr-1"></i>Informacion de su compra</p>
+        </div>
+        <div class="card-body">
+            <ul class="list-group mb-3 z-depth-1">
+                {% for lista in pedido.articulos_pedidos.all %}
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                    <p class="my-0">{{ lista.cantidad}} x {{lista.articulo.nombre}}</p>
+                    <small class="texto-form text-muted">{{ order_item.item.description}}</small>
+                    </div>
+                    <span class=" texto-form text-muted">${{ lista.total }}</span>
+                </li>
+                {% endfor %}
+                {% if order.coupon %}
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                    <h6 class="my-0">Promo code</h6>
+                    <small>{{ order.coupon.code }}</small>
+                    </div>
+                    <span class="text-success titulo">-${{ order.coupon.amount }}</span>
+                </li>
+                {% endif %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span class="texto-form"> Total (USD)</span>
+                    <strong class="texto-form">${{ pedido.total_pagar }}</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="card-footer">
+            {% if mostrar_cupon %}
+            <form class="" action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    {{ cupon.codigo }}
+                    <div class="input-group-append">
+                    <button class="btn bg-blue  rounded-0 text-white btn-md waves-effect m-0" type="submit">Canjear</button>
+                    </div>
                 </div>
-            </div>
-        </form>
-        {% endif %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
 </div>
+<p class="encabezado text-secondary font-weight-bold  d-flex" >
+   
+    <span class="badge badge-secondary badge-pill">{{ pedido.articulos_pedidos.count }}</span>
+</p>
 
+
+   
 
 
   

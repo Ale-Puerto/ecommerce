@@ -9,5 +9,5 @@ def carrito_conteo(user):
         qs = Pedido.objects.filter(user=user, ordenado=False)
         if qs.exists():
             return qs[0].articulos_pedidos.count()
-        return 0
+    return 0
    
