@@ -21,6 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 
+  {% block extra_css %}
+  {% endblock extra_css %}
+
 </head>
 
 <body>
@@ -268,12 +271,9 @@
   </div>
 </div>
 {% endblock footer %}
-  
- 
-
-
 </div>
-
+{% block extra_js %}
+{% endblock extra_js %}
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/all.js' %}"></script>
 </body>

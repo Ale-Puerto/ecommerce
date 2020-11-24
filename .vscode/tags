@@ -10,55 +10,55 @@ AUTHENTICATION_BACKENDS	../ecommerce/settings.py	/^AUTHENTICATION_BACKENDS = ($/
 AUTH_PASSWORD_VALIDATORS	../ecommerce/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:96
 AppConfig	../core/apps.py	/^from django.apps import AppConfig$/;"	kind:namespace	line:1
 Articulo	../core/models.py	/^class Articulo(models.Model):$/;"	kind:class	line:33
-Articulo	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:8
-ArticuloDetailView	../core/views.py	/^class ArticuloDetailView(DetailView):$/;"	kind:class	line:36
+Articulo	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:9
+ArticuloDetailView	../core/views.py	/^class ArticuloDetailView(DetailView):$/;"	kind:class	line:41
 ArticuloPedido	../core/models.py	/^class ArticuloPedido(models.Model):$/;"	kind:class	line:56
-ArticuloPedido	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:8
+ArticuloPedido	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:9
 BASE_DIR	../ecommerce/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
 BLACK	../templates/prueba.py	/^BLACK = (0, 0, 0)          # dead$/;"	kind:variable	line:8
 COVID19_PARAMS	../templates/prueba.py	/^COVID19_PARAMS = {$/;"	kind:variable	line:10
 Categorias	../core/models.py	/^class Categorias(models.Model):$/;"	kind:class	line:17
 Categorias	../core/templatetags/categorias_tags.py	/^from core.models import Categorias$/;"	kind:namespace	line:2
-Categorias	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:8
+Categorias	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:9
 CoreConfig	../core/apps.py	/^class CoreConfig(AppConfig):$/;"	kind:class	line:4
 CountryField	../core/forms.py	/^from django_countries.fields  import CountryField$/;"	kind:namespace	line:4
 CountryField	../core/models.py	/^from django_countries.fields  import CountryField$/;"	kind:namespace	line:4
 CountrySelectWidget	../core/forms.py	/^from django_countries.widgets import CountrySelectWidget$/;"	kind:namespace	line:8
 CuponForm	../core/forms.py	/^class CuponForm(forms.Form):$/;"	kind:class	line:49
-CuponForm	../core/views.py	/^from .forms import DireccionForm, CuponForm$/;"	kind:namespace	line:4
+CuponForm	../core/views.py	/^from .forms import DireccionForm, CuponForm$/;"	kind:namespace	line:5
 DATABASES	../ecommerce/settings.py	/^DATABASES = {$/;"	kind:variable	line:85
 DEBUG	../ecommerce/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
-DetailView	../core/views.py	/^from django.views.generic import DetailView$/;"	kind:namespace	line:5
+DetailView	../core/views.py	/^from django.views.generic import DetailView$/;"	kind:namespace	line:6
 Direccion	../core/forms.py	/^from .models import Direccion$/;"	kind:namespace	line:2
 Direccion	../core/models.py	/^class Direccion(models.Model):$/;"	kind:class	line:106
-Direccion	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:8
+Direccion	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:9
 DireccionForm	../core/forms.py	/^class DireccionForm(forms.Form):$/;"	kind:class	line:11
-DireccionForm	../core/views.py	/^from .forms import DireccionForm, CuponForm$/;"	kind:namespace	line:4
+DireccionForm	../core/views.py	/^from .forms import DireccionForm, CuponForm$/;"	kind:namespace	line:5
 GREEN	../templates/prueba.py	/^GREEN = (0, 0.86, 0.03)    # recovered$/;"	kind:variable	line:7
 GREY	../templates/prueba.py	/^GREY = (0.78, 0.78, 0.78)  # uninfected$/;"	kind:variable	line:5
-HttpResponse	../core/views.py	/^from django.http import HttpResponse$/;"	kind:namespace	line:2
+HttpResponse	../core/views.py	/^from django.http import HttpResponse$/;"	kind:namespace	line:3
 INSTALLED_APPS	../ecommerce/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
 Image	../core/models.py	/^from PIL import Image$/;"	kind:namespace	line:7
 ImageField	../core/models.py	/^from sorl.thumbnail import ImageField, get_thumbnail$/;"	kind:namespace	line:6
 ImagenRefencia	../core/models.py	/^class ImagenRefencia(models.Model):$/;"	kind:class	line:100
 Inicio	../core/urls.py	/^from .views import (Inicio,$/;"	kind:namespace	line:2
-Inicio	../core/views.py	/^class Inicio(View):$/;"	kind:class	line:24
+Inicio	../core/views.py	/^class Inicio(View):$/;"	kind:class	line:29
 LANGUAGE_CODE	../ecommerce/settings.py	/^LANGUAGE_CODE = 'es'$/;"	kind:variable	line:115
 LOGIN_REDIRECT_URL	../ecommerce/settings.py	/^LOGIN_REDIRECT_URL = '\/'$/;"	kind:variable	line:140
-ListaCarritoView	../core/views.py	/^class ListaCarritoView(LoginRequiredMixin,View):$/;"	kind:class	line:55
-LoginRequiredMixin	../core/views.py	/^from django.contrib.auth.mixins import LoginRequiredMixin$/;"	kind:namespace	line:10
+ListaCarritoView	../core/views.py	/^class ListaCarritoView(LoginRequiredMixin,View):$/;"	kind:class	line:60
+LoginRequiredMixin	../core/views.py	/^from django.contrib.auth.mixins import LoginRequiredMixin$/;"	kind:namespace	line:11
 MEDIA_ROOT	../ecommerce/settings.py	/^MEDIA_ROOT = os.path.join(BASE_DIR, "media")$/;"	kind:variable	line:135
 MEDIA_URL	../ecommerce/settings.py	/^MEDIA_URL = "\/media\/"$/;"	kind:variable	line:136
 MIDDLEWARE	../ecommerce/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:51
 Migration	../core/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:10
-ObjectDoesNotExist	../core/views.py	/^from django.core.exceptions import ObjectDoesNotExist$/;"	kind:namespace	line:7
+ObjectDoesNotExist	../core/views.py	/^from django.core.exceptions import ObjectDoesNotExist$/;"	kind:namespace	line:8
 PHONENUMBER_DB_FORMAT	../ecommerce/settings.py	/^PHONENUMBER_DB_FORMAT = 'E164'$/;"	kind:variable	line:143
 Pago	../core/models.py	/^class Pago(models.Model):$/;"	kind:class	line:124
 PagoForm	../core/forms.py	/^class PagoForm(forms.Form):$/;"	kind:class	line:55
-PagosView	../core/views.py	/^class PagosView(View):$/;"	kind:class	line:66
+PagosView	../core/views.py	/^class PagosView(View):$/;"	kind:class	line:71
 Pedido	../core/models.py	/^class Pedido(models.Model):$/;"	kind:class	line:81
 Pedido	../core/templatetags/carrito_conteo_tags.py	/^from core.models import Pedido$/;"	kind:namespace	line:2
-Pedido	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:8
+Pedido	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:9
 PhoneNumberField	../core/forms.py	/^from phonenumber_field.formfields import PhoneNumberField$/;"	kind:namespace	line:6
 PhoneNumberField	../core/models.py	/^from phonenumber_field.modelfields import PhoneNumberField$/;"	kind:namespace	line:5
 PhoneNumberInternationalFallbackWidget	../core/forms.py	/^from phonenumber_field.widgets import PhoneNumberInternationalFallbackWidget$/;"	kind:namespace	line:7
@@ -68,17 +68,18 @@ SECRET_KEY	../ecommerce/settings.py	/^SECRET_KEY = 'owo2ug7(w#vlagkrfj@(hci3hgjk
 SITE_ID	../ecommerce/settings.py	/^SITE_ID = 1$/;"	kind:variable	line:138
 STATICFILES_DIRS	../ecommerce/settings.py	/^STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]$/;"	kind:variable	line:131
 STATIC_URL	../ecommerce/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:129
+STRIPE_SECRET_KEY	../ecommerce/settings.py	/^STRIPE_SECRET_KEY = 'sk_test_wDW0qpbaomlsC6HY2zTdAe7d00TESQEEju'$/;"	kind:variable	line:156
 Slider	../core/admin.py	/^from .models import (Slider,$/;"	kind:namespace	line:2
 Slider	../core/models.py	/^class Slider(models.Model):$/;"	kind:class	line:27
-Slider	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:8
+Slider	../core/views.py	/^from .models import Slider, Articulo, Categorias, ArticuloPedido, Pedido, Direccion$/;"	kind:namespace	line:9
 TEMPLATES	../ecommerce/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:63
 TIME_ZONE	../ecommerce/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:117
 TestCase	../core/tests.py	/^from django.test import TestCase$/;"	kind:namespace	line:1
 USE_I18N	../ecommerce/settings.py	/^USE_I18N = True$/;"	kind:variable	line:119
 USE_L10N	../ecommerce/settings.py	/^USE_L10N = True$/;"	kind:variable	line:121
 USE_TZ	../ecommerce/settings.py	/^USE_TZ = True$/;"	kind:variable	line:123
-VerficarView	../core/views.py	/^class VerficarView(LoginRequiredMixin,View):$/;"	kind:class	line:75
-View	../core/views.py	/^from django.views import View$/;"	kind:namespace	line:3
+VerficarView	../core/views.py	/^class VerficarView(LoginRequiredMixin,View):$/;"	kind:class	line:114
+View	../core/views.py	/^from django.views import View$/;"	kind:namespace	line:4
 Virus	../templates/prueba.py	/^class Virus():$/;"	kind:class	line:23
 WSGI_APPLICATION	../ecommerce/settings.py	/^WSGI_APPLICATION = 'ecommerce.wsgi.application'$/;"	kind:variable	line:79
 __init__	../templates/prueba.py	/^    def __init__(self, params):$/;"	kind:member	line:24
@@ -92,7 +93,7 @@ __str__	../core/models.py	/^    def __str__(self):$/;"	kind:member	line:23
 __str__	../core/models.py	/^    def __str__(self):$/;"	kind:member	line:43
 __str__	../core/models.py	/^    def __str__(self):$/;"	kind:member	line:62
 add_to_cart	../core/models.py	/^    def add_to_cart(self):$/;"	kind:member	line:50
-add_to_cart	../core/views.py	/^def add_to_cart(request, pk):$/;"	kind:function	line:235
+add_to_cart	../core/views.py	/^def add_to_cart(request, pk):$/;"	kind:function	line:272
 admin	../core/admin.py	/^from django.contrib import admin$/;"	kind:namespace	line:1
 admin	../ecommerce/urls.py	/^from django.contrib import admin$/;"	kind:namespace	line:17
 admin.py	../core/admin.py	1;"	kind:file	line:1
@@ -103,9 +104,9 @@ app_name	../core/urls.py	/^app_name = "core"$/;"	kind:variable	line:11
 application	../ecommerce/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
 apps.py	../core/apps.py	1;"	kind:file	line:1
 articulo	../core/models.py	/^    articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)$/;"	kind:variable	line:58
-articulos_pedidos	../core/models.py	/^    articulos_pedidos= models.ManyToManyField(ArticuloPedido)$/;"	kind:variable	line:85
+articulos_pedidos	../core/models.py	/^    articulos_pedidos = models.ManyToManyField(ArticuloPedido)$/;"	kind:variable	line:85
 assign_symptoms	../templates/prueba.py	/^    def assign_symptoms(self):$/;"	kind:member	line:143
-campos_validados	../core/views.py	/^def campos_validados(values):$/;"	kind:function	line:15
+campos_validados	../core/views.py	/^def campos_validados(values):$/;"	kind:function	line:20
 cantidad	../core/models.py	/^    cantidad = models.IntegerField(default=1)$/;"	kind:variable	line:60
 carrito_conteo	../core/templatetags/carrito_conteo_tags.py	/^def carrito_conteo(user):$/;"	kind:function	line:7
 carrito_conteo_tags.py	../core/templatetags/carrito_conteo_tags.py	1;"	kind:file	line:1
@@ -117,7 +118,7 @@ codigo	../core/forms.py	/^    codigo = forms.CharField(max_length=10, required=F
 codigo_postal	../core/forms.py	/^    codigo_postal = forms.CharField(required=False, widget=forms.TextInput(attrs={$/;"	kind:variable	line:38
 codigo_postal	../core/models.py	/^    codigo_postal = models.IntegerField()$/;"	kind:variable	line:116
 color_descriptivo	../core/models.py	/^    color_descriptivo = models.CharField(max_length=9, default="black")$/;"	kind:variable	line:21
-context_object_name	../core/views.py	/^    context_object_name = 'articulo'$/;"	kind:variable	line:38
+context_object_name	../core/views.py	/^    context_object_name = 'articulo'$/;"	kind:variable	line:43
 cuidad	../core/models.py	/^    cuidad = models.CharField(max_length=50)$/;"	kind:variable	line:115
 db	../core/migrations/0001_initial.py	/^import django.db.models.deletion$/;"	kind:namespace	line:5
 default	../core/forms.py	/^    default = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={$/;"	kind:variable	line:42
@@ -152,17 +153,17 @@ fields	../core/migrations/0001_initial.py	/^import django_countries.fields$/;"	k
 forms	../core/forms.py	/^from django import forms$/;"	kind:namespace	line:1
 forms.py	../core/forms.py	1;"	kind:file	line:1
 gen	../templates/prueba.py	/^    def gen(self):$/;"	kind:member	line:213
-get	../core/views.py	/^    def get(self, *args , **kwargs):$/;"	kind:member	line:76
-get	../core/views.py	/^    def get(self, *args, **kwargs):$/;"	kind:member	line:67
-get	../core/views.py	/^    def get(self, *args,**kwargs):$/;"	kind:member	line:56
-get	../core/views.py	/^    def get(self, request):$/;"	kind:member	line:25
+get	../core/views.py	/^    def get(self, *args , **kwargs):$/;"	kind:member	line:115
+get	../core/views.py	/^    def get(self, *args, **kwargs):$/;"	kind:member	line:72
+get	../core/views.py	/^    def get(self, *args,**kwargs):$/;"	kind:member	line:61
+get	../core/views.py	/^    def get(self, request):$/;"	kind:member	line:30
 get_absolute_url	../core/models.py	/^    def get_absolute_url(self):$/;"	kind:member	line:46
-get_object	../core/views.py	/^    def get_object(self,):$/;"	kind:member	line:41
-get_object_or_404	../core/views.py	/^from django.shortcuts import get_object_or_404$/;"	kind:namespace	line:9
+get_object	../core/views.py	/^    def get_object(self,):$/;"	kind:member	line:46
+get_object_or_404	../core/views.py	/^from django.shortcuts import get_object_or_404$/;"	kind:namespace	line:10
 get_thumbnail	../core/models.py	/^from sorl.thumbnail import ImageField, get_thumbnail$/;"	kind:namespace	line:6
 get_wsgi_application	../ecommerce/wsgi.py	/^from django.core.wsgi import get_wsgi_application$/;"	kind:namespace	line:12
 guardar	../core/forms.py	/^    guardar = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={$/;"	kind:variable	line:45
-http_date	../core/views.py	/^from django.utils.http import http_date$/;"	kind:namespace	line:6
+http_date	../core/views.py	/^from django.utils.http import http_date$/;"	kind:namespace	line:7
 image	../core/models.py	/^    image = models.ImageField(upload_to="media")$/;"	kind:variable	line:28
 imagen	../core/models.py	/^    imagen = models.ImageField(upload_to="media")$/;"	kind:variable	line:102
 imagen_presentacion	../core/models.py	/^    imagen_presentacion = models.ImageField(upload_to="media", null=True)$/;"	kind:variable	line:37
@@ -171,7 +172,7 @@ imagen_referencia	../core/models.py	/^    imagen_referencia = models.ManyToManyF
 include	../ecommerce/urls.py	/^from django.urls import path, include$/;"	kind:namespace	line:18
 initial	../core/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:12
 initial_population	../templates/prueba.py	/^    def initial_population(self):$/;"	kind:member	line:74
-login_required	../core/views.py	/^from django.contrib.auth.decorators import login_required$/;"	kind:namespace	line:12
+login_required	../core/views.py	/^from django.contrib.auth.decorators import login_required$/;"	kind:namespace	line:13
 main	../manage.py	/^def main():$/;"	kind:function	line:7
 main	../templates/prueba.py	/^def main():$/;"	kind:function	line:226
 manage.py	../manage.py	1;"	kind:file	line:1
@@ -179,7 +180,7 @@ marca	../core/models.py	/^    marca = models.CharField(max_length=50)$/;"	kind:v
 matplotlib	../templates/prueba.py	/^import matplotlib.animation as ani$/;"	kind:namespace	line:2
 matplotlib	../templates/prueba.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:1
 migrations	../core/migrations/0001_initial.py	/^from django.db import migrations, models$/;"	kind:namespace	line:4
-model	../core/views.py	/^    model = Articulo$/;"	kind:variable	line:37
+model	../core/views.py	/^    model = Articulo$/;"	kind:variable	line:42
 model_name	../core/migrations/0001_initial.py	/^            model_name='articulo',$/;"	kind:variable	line:108
 model_name	../core/migrations/0001_initial.py	/^            model_name='articulo',$/;"	kind:variable	line:113
 modelfields	../core/migrations/0001_initial.py	/^import phonenumber_field.modelfields$/;"	kind:namespace	line:7
@@ -223,25 +224,30 @@ phonenumber_field	../core/migrations/0001_initial.py	/^import phonenumber_field.
 plt	../templates/prueba.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:1
 posicion	../core/models.py	/^    posicion = models.CharField(max_length=1, choices=position_choices)$/;"	kind:variable	line:31
 position_choices	../core/models.py	/^position_choices = ($/;"	kind:variable	line:11
-post	../core/views.py	/^    def post(self, *args, **kwargs):$/;"	kind:member	line:90
+post	../core/views.py	/^    def post(self, *args, **kwargs):$/;"	kind:member	line:129
+post	../core/views.py	/^    def post(self, *args, **kwargs):$/;"	kind:member	line:181
+post	../core/views.py	/^    def post(self, *args, **kwargs):$/;"	kind:member	line:79
 precio	../core/models.py	/^    precio = models.FloatField(default=0.00)$/;"	kind:variable	line:40
 provincia	../core/forms.py	/^    provincia = forms.CharField(required=False, widget=forms.TextInput(attrs={$/;"	kind:variable	line:32
 provincia	../core/models.py	/^    provincia = models.CharField(max_length=50)$/;"	kind:variable	line:114
 prueba.py	../templates/prueba.py	1;"	kind:file	line:1
-redirect	../core/views.py	/^from django.shortcuts import render, redirect$/;"	kind:namespace	line:1
+redirect	../core/views.py	/^from django.shortcuts import render, redirect$/;"	kind:namespace	line:2
 register	../core/templatetags/carrito_conteo_tags.py	/^register = template.Library()$/;"	kind:variable	line:4
 register	../core/templatetags/categorias_tags.py	/^register = template.Library()$/;"	kind:variable	line:4
-remove_single_to_cart	../core/views.py	/^def remove_single_to_cart(request, pk):$/;"	kind:function	line:205
-render	../core/views.py	/^from django.shortcuts import render, redirect$/;"	kind:namespace	line:1
+remove_single_to_cart	../core/views.py	/^def remove_single_to_cart(request, pk):$/;"	kind:function	line:242
+render	../core/views.py	/^from django.shortcuts import render, redirect$/;"	kind:namespace	line:2
 reverse	../core/models.py	/^from django.urls import reverse$/;"	kind:namespace	line:2
 save	../core/forms.py	/^    save = forms.BooleanField()$/;"	kind:variable	line:58
 settings	../core/migrations/0001_initial.py	/^from django.conf import settings$/;"	kind:namespace	line:3
 settings	../core/models.py	/^from django.conf import settings$/;"	kind:namespace	line:3
+settings	../core/views.py	/^from django.conf import settings$/;"	kind:namespace	line:1
 settings	../ecommerce/urls.py	/^from . import settings$/;"	kind:namespace	line:22
 settings.py	../ecommerce/settings.py	1;"	kind:file	line:1
 spread_virus	../templates/prueba.py	/^    def spread_virus(self, i):$/;"	kind:member	line:88
 static	../ecommerce/urls.py	/^from django.contrib.staticfiles.urls import static$/;"	kind:namespace	line:20
 staticfiles_urlpatterns	../ecommerce/urls.py	/^from django.contrib.staticfiles.urls import staticfiles_urlpatterns$/;"	kind:namespace	line:21
+stripe	../core/models.py	/^import stripe$/;"	kind:namespace	line:8
+stripe	../core/views.py	/^import stripe$/;"	kind:namespace	line:14
 stripeToken	../core/forms.py	/^    stripeToken = forms.CharField()$/;"	kind:variable	line:57
 stripe_charger_id	../core/models.py	/^    stripe_charger_id = models.CharField(max_length=50)$/;"	kind:variable	line:125
 subtotal_precio	../core/models.py	/^    def subtotal_precio(self):$/;"	kind:member	line:65
@@ -250,11 +256,11 @@ telefono	../core/forms.py	/^    telefono =PhoneNumberField(required=False, widge
 telefono	../core/models.py	/^    telefono = PhoneNumberField(blank=True, help_text='Numero de contacto')$/;"	kind:variable	line:111
 template	../core/templatetags/carrito_conteo_tags.py	/^from django import template$/;"	kind:namespace	line:1
 template	../core/templatetags/categorias_tags.py	/^from django import template$/;"	kind:namespace	line:1
-template_name	../core/views.py	/^    template_name = "productodetail.html"$/;"	kind:variable	line:39
+template_name	../core/views.py	/^    template_name = "productodetail.html"$/;"	kind:variable	line:44
 tests.py	../core/tests.py	1;"	kind:file	line:1
 texto	../core/models.py	/^    texto = models.TextField(max_length=500)$/;"	kind:variable	line:29
 timestap	../core/models.py	/^    timestap = models.DateTimeField(auto_now_add=True)$/;"	kind:variable	line:130
-timezone	../core/views.py	/^from django.utils import timezone$/;"	kind:namespace	line:11
+timezone	../core/views.py	/^from django.utils import timezone$/;"	kind:namespace	line:12
 total	../core/models.py	/^    def total(self):$/;"	kind:member	line:74
 total_con_descuento	../core/models.py	/^    def total_con_descuento(self):$/;"	kind:member	line:71
 total_pagar	../core/models.py	/^    def total_pagar(self):$/;"	kind:member	line:93

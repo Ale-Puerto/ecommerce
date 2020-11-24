@@ -5,7 +5,7 @@ from django_countries.fields  import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from sorl.thumbnail import ImageField, get_thumbnail
 from PIL import Image
-
+import stripe
 # Create your models here.
 
 position_choices = (
@@ -82,7 +82,7 @@ class Pedido(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                             on_delete=models.CASCADE
                             )
-    articulos_pedidos= models.ManyToManyField(ArticuloPedido)
+    articulos_pedidos = models.ManyToManyField(ArticuloPedido)
     fecha_inicio = models.DateTimeField(auto_now=True)
     fecha_pedido = models.DateTimeField()
     direccion_envio = models.ForeignKey('Direccion', on_delete=models.SET_NULL, blank=True, null=True)

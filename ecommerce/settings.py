@@ -152,3 +152,5 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
   
 )
+
+STRIPE_SECRET_KEY = 'sk_test_wDW0qpbaomlsC6HY2zTdAe7d00TESQEEju'
